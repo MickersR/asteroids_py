@@ -13,6 +13,10 @@ def main():
     frame_timer = pygame.time.Clock()
     dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    #instantiate player object
+    player1 = Player((SCREEN_WIDTH/2), (SCREEN_HEIGHT/2))
+
     #main game loop
     running = True
     while running:
@@ -24,12 +28,10 @@ def main():
         #frame timer tick
         dt = (frame_timer.tick(60) / 1000)
         
-        #instantiate player object
-        player1 = Player((SCREEN_WIDTH/2), (SCREEN_HEIGHT/2))
 
         #Draw player1
         player1.draw(screen)
-
+        player1.update(dt)
         pygame.display.flip()
 
     print("Starting asteroids!")
